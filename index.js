@@ -1,20 +1,30 @@
+alert("Elija un numero, tire un dado y pruebe su suerte. Presione ENTER para continuar")
 
-//condicion inicial para el bucle while
-let condicion = false
+let numeroRandom = Math.floor(Math.random() * 6 + 1)
 
-//bucle que inicializa la app
-while (condicion == false) {
-    //consulta inicial
-    let edad = parseInt(prompt("Ingresar edad"))
+const lanzarDados = () => {
+    let pedidoNumero = parseInt(prompt("Escoja un numero del 1 al 6"))
     
-    //condicional evalua edad ingresada
-    if (edad < 18) {
-        alert("No puedes ingresar")
-        condicion = true
-    } else if(edad >= 18){
-        alert("Puedes ingresar")
-        condicion = true
-    } else {
-        alert("Ingrese un numero valido")
+    
+    switch (true) {
+        case pedidoNumero > 0 && pedidoNumero < 7:
+            alert("Presione ENTER para lanzar el dado")
+            if (pedidoNumero === numeroRandom) {
+                alert("Ganaste")
+            } else {
+                alert(`Perdiste, el numero que salio es ${numeroRandom}`)
+            }
+            break;
+
+        case pedidoNumero === 0 || pedidoNumero > 6:
+            alert("Ingrese un numero entre 1 y 6")
+            lanzarDados()
+            break;
+
+        default:
+            alert("Caracter no valido, intente de nuevo")
+            lanzarDados()
+            break;
     }
 }
+lanzarDados()
