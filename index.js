@@ -1,54 +1,28 @@
-alert("Elija un numero, tire un dado y pruebe su suerte. Presione ENTER para continuar")
+alert("Bienvenido al gestor de equipamento para aventuras! presiones ENTER para continuar")
 
-//Inicio de app
-const inicioJuego = () => {
+//Arreglo donde se van a ir cargando los items
+const mochila = []
 
-    //Generacion de numero random
-    let numeroRandom = Math.floor(Math.random() * 6 + 1)
-
-    //Peticion de numeros y lanzamiento de dado
-    const lanzarDados = () => {
-        let pedidoNumero = parseInt(prompt("Escoja un numero del 1 al 6"))
-
-        const playAgain = () => {
-            let respuestaUsuario = prompt("Desea seguir jugando? SI o NO").toUpperCase()
-
-            if (respuestaUsuario === "SI") {
-                inicioJuego()
-            } else if (respuestaUsuario === "NO") {
-                alert("Gracias vuelvas prontos")
-            } else {
-                alert("Respuesta no valida")
-                playAgain()
-            }
-        }
-
-        //Evalua numero elegido con el numero random
-        switch (true) {
-            case pedidoNumero > 0 && pedidoNumero < 7:
-                alert("Presione ENTER para lanzar el dado")
-                if (pedidoNumero === numeroRandom) {
-                    alert("Ganaste")
-                    playAgain()
-                } else {
-                    alert(`Perdiste, el numero que salio es ${numeroRandom}`)
-                    playAgain()
-                }
-                break;
-
-            case pedidoNumero === 0 || pedidoNumero > 6:
-                alert("Ingrese un numero entre 1 y 6")
-                lanzarDados()
-                break;
-
-            default:
-                alert("Caracter no valido, intente de nuevo")
-                lanzarDados()
-                break;
-        }
-    }
-
-    lanzarDados()
+//Pedir item y pusheo al arreglo
+const pedirItem = () => {
+    const nuevoItem = prompt("Ingrese un item a llevar: ")
+    mochila.push(` ${nuevoItem}`)
 }
-//Funcion que inicia el juego
-inicioJuego()
+
+//Consulta agregar mas items
+const agregarMasItems = () => {
+    let respuestaItems = prompt("Desea Ingresar mas items?: 1- SI 2- NO").toUpperCase()
+    if (respuestaItems === "SI") {
+        pedirItem()
+        agregarMasItems()
+    } else if (respuestaItems === "NO") {
+        alert(`Su mochila de aventura contiene: ${mochila}`)
+        alert("Suerte en su nuevo viaje!")
+    } else {
+        alert("Ingrese SI o NO como respuesta válida")
+        agregarMasItems()
+    }
+}
+//Funciones que inicializan la app
+pedirItem()
+agregarMasItems()
