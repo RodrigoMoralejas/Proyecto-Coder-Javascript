@@ -1,28 +1,47 @@
-alert("Bienvenido al gestor de equipamento para aventuras! presiones ENTER para continuar")
 
-//Arreglo donde se van a ir cargando los items
-const mochila = []
+alert("Bienvenido al baul de items, ingrese sus items")
 
-//Pedir item y pusheo al arreglo
-const pedirItem = () => {
-    const nuevoItem = prompt("Ingrese un item a llevar: ")
-    mochila.push(` ${nuevoItem}`)
-}
+const baul = []
 
-//Consulta agregar mas items
-const agregarMasItems = () => {
-    let respuestaItems = prompt("Desea Ingresar mas items?: 1- SI 2- NO").toUpperCase()
-    if (respuestaItems === "SI") {
-        pedirItem()
-        agregarMasItems()
-    } else if (respuestaItems === "NO") {
-        alert(`Su mochila de aventura contiene: ${mochila}`)
-        alert("Suerte en su nuevo viaje!")
-    } else {
-        alert("Ingrese SI o NO como respuesta válida")
-        agregarMasItems()
+const contenidoBaul = []
+
+//Funcion que inicia la app
+const iniciarApp = () => {
+
+    const mostrarBaul = () => {
+    
+        baul.map((itemsArray) => {
+            contenidoBaul.push(`${itemsArray.item} ${itemsArray.cantidad}`)
+        })
+        alert(`Estos son sus items: ${contenidoBaul}`)
     }
+
+    const pedirOtroItem = () => {
+        let otroItem = prompt("Desea ingresar otro item? SI/NO").toUpperCase()
+        if (otroItem === "SI") {
+            iniciarApp()
+        } else if (otroItem === "NO") {
+            mostrarBaul()
+            alert("Adios")
+        } else {
+            alert("Ingrese respuesta valida")
+            pedirOtroItem()
+        }
+    }
+
+    const pedirItem = () => {
+        let itemUsuario = prompt("Ingrese su item: ")
+        let itemCantidad = parseInt(prompt("Ingrese la cantidad de items a dejar"))
+        baul.push({
+            item: itemUsuario,
+            cantidad: itemCantidad
+        })
+
+        pedirOtroItem()
+    }
+    
+    pedirItem()
 }
-//Funciones que inicializan la app
-pedirItem()
-agregarMasItems()
+
+//Inicio de app
+iniciarApp()
