@@ -1,4 +1,3 @@
-
 alert("Bienvenido al baul de items, ingrese sus items")
 
 const baul = []
@@ -9,11 +8,16 @@ const contenidoBaul = []
 const iniciarApp = () => {
 
     const mostrarBaul = () => {
-    
-        baul.map((itemsArray) => {
-            contenidoBaul.push(`${itemsArray.item} ${itemsArray.cantidad}`)
-        })
-        alert(`Estos son sus items: ${contenidoBaul}`)
+
+        const mainDiv = document.getElementById("main")
+
+        for(let i = 0; i < baul.length; i++) {
+            const itemDiv = document.createElement("p")
+            itemDiv.classList.add("parrafo")
+            itemDiv.innerHTML = `${baul[i].item} ${baul[i].cantidad}`
+            mainDiv.append(itemDiv)
+        }
+
     }
 
     const pedirOtroItem = () => {
@@ -39,7 +43,7 @@ const iniciarApp = () => {
 
         pedirOtroItem()
     }
-    
+
     pedirItem()
 }
 
