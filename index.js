@@ -17,7 +17,6 @@ const iniciarApp = () => {
             itemDiv.innerHTML = `${baul[i].item} ${baul[i].cantidad}`
             mainDiv.append(itemDiv)
         }
-
     }
 
     const pedirOtroItem = () => {
