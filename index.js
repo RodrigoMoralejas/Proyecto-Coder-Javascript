@@ -4,19 +4,22 @@ const baul = []
 
 const contenidoBaul = []
 
+const mainDiv = document.getElementById("main")
+
+let parrafosHijos
+
 //Funcion que inicia la app
 const iniciarApp = () => {
 
     const mostrarBaul = () => {
-
-        const mainDiv = document.getElementById("main")
-
-        for(let i = 0; i < baul.length; i++) {
+        for (let i = 0; i < baul.length; i++) {
             const itemDiv = document.createElement("p")
             itemDiv.classList.add("parrafo")
             itemDiv.innerHTML = `${baul[i].item} ${baul[i].cantidad}`
             mainDiv.append(itemDiv)
         }
+
+        parrafosHijos = document.querySelectorAll("p")
     }
 
     const pedirOtroItem = () => {
@@ -24,7 +27,6 @@ const iniciarApp = () => {
         if (otroItem === "SI") {
             iniciarApp()
         } else if (otroItem === "NO") {
-            mostrarBaul()
             alert("Adios")
         } else {
             alert("Ingrese respuesta valida")
@@ -39,11 +41,24 @@ const iniciarApp = () => {
             item: itemUsuario,
             cantidad: itemCantidad
         })
-
         pedirOtroItem()
     }
-
     pedirItem()
+
+    //Boton mostrar items
+    const botonMostrar = document.getElementById("boton")
+    
+    botonMostrar.addEventListener("click", () => {
+        if (mainDiv.children.length === 0) {
+            mostrarBaul()
+        }
+        if(mainDiv.children.length >= 1) {
+            for(let i = 0; i < parrafosHijos.length; i++) {
+                parrafosHijos[i].classList.toggle("parrafo")
+                parrafosHijos[i].classList.toggle("parrafo2")
+            }
+        }
+    })
 }
 
 //Inicio de app
