@@ -1,38 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body {
-    height: 100vh;
-    background-color:darkgray;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    padding: 0.5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: slategray;
+}
+
+header h1 {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+header p {
+    margin-right: 1rem;
+}
+
+.containerMain {
+    min-height: 94vh;
+    background-color: saddlebrown;
+}
+
+.containerMain h2 {
+    padding-top: 0.5rem;
+    text-align: center;
+    background-color: wheat;
+}
+
+.storeList {
+    width: 100%;
+    padding: 1rem;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.storeItem{
+    height: 9rem;
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.storeItem h3 {
+    margin: 0.2rem 0;
+    pointer-events: none;
+}
+
+.storeItem p {
+    font-weight: bold;
+    color: whitesmoke;
+    pointer-events: none;
+}
+
+.itemImg {
+    height: 5rem;
+    width: 5rem;
+    background-color: bisque;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+
+.vaultItems {
+    min-height: 60vw;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: saddlebrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.itemVault {
+    width: 200px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: darkgrey;
 }
 
-#boton {
-    margin: 2rem;
-    color: crimson;
-    border: 1px solid;
+.itemVault h2 {
+    background-color: darkgrey;
+    margin-top: 0.5rem;
+    padding: 0;
 }
 
-.containerMain {
-    border-radius: 6px;
-    background-color:cornsilk;
+.divImg {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    overflow: hidden;
 }
 
-.parrafo {
-    margin: 2rem;
-    text-align: center;
-    color:crimson;
-    font-size: 4rem;
-    font-weight: bolder;
-}
-
-.parrafo2 {
-    margin: 2rem;
-    text-align: center;
-    color:green;
-    font-size: 4rem;
-    font-weight: bolder;
+.cardImg {
+    width: 100%;
+    margin: auto;
 }
