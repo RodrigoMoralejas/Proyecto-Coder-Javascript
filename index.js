@@ -1,5 +1,6 @@
 const storeList = document.getElementById("storeList")
 const vaultItems = document.getElementById("vaultItems")
+const userCoins = document.getElementById("userCoins")
 
 const items = [{
         id: "sword",
@@ -64,10 +65,12 @@ const items = [{
 
 let userItem = []
 
+let coins = 500
+
+userCoins.innerHTML = `${coins}`
+
 const userVault = () => {
     userItem.forEach((itemV) => {
-        console.log(userItem)
-        console.log(itemV)
         const newItem = document.createElement("div")
         newItem.classList.add("itemVault")
         newItem.id = itemV.id
@@ -77,7 +80,8 @@ const userVault = () => {
         </div>
         <h2>${itemV.id}</h2>`
         vaultItems.append(newItem)
-    })}
+    })
+}
 
 const storageChecker = () => {
     if (localStorage.getItem("userItemsDB")) {
@@ -91,7 +95,6 @@ const storageChecker = () => {
 storageChecker()
 
 items.forEach((item) => {
-    console.log(item)
     const newItem = document.createElement("div")
     newItem.classList.add("storeItem")
     newItem.id = item.id
@@ -112,15 +115,15 @@ storeList.addEventListener("click", (e) => {
 
         const itemFind = items.find(x => x.id === selectedItem.id)
 
-        console.log(itemFind)
+        coins = coins - itemFind.price
+
+        userCoins.innerHTML = `${coins}`
 
         userItem.push({
             id: itemFind.id,
             price: itemFind.price,
             img: itemFind.img
         })
-
-        console.log(userItem)
 
         const itemVault = document.createElement("div")
         itemVault.classList.add("itemVault")
@@ -131,7 +134,19 @@ storeList.addEventListener("click", (e) => {
                 <h2>${selectedItem.id}</h2>
             `
         vaultItems.append(itemVault)
+        localStorage.setItem("userItemsDB", JSON.stringify(userItem))
+    }
+})
 
+vaultItems.addEventListener("click", (e) => {
+    const vaultTarget = e.target
+    const parentVault = e.target.parentElement
+    if (vaultTarget.classList.contains("itemVault")) {
+        const itemIndex = Array.from(vaultTarget.parentNode.children).indexOf(e.target)
+        vaultTarget.remove()
+        const itemPrice = userItem[itemIndex].price
+        console.log(itemPrice)
+        userItem.splice(itemIndex, 1)
         localStorage.setItem("userItemsDB", JSON.stringify(userItem))
     }
 })

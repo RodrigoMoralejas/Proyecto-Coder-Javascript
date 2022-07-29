@@ -105,12 +105,14 @@ header p {
     align-items: center;
     flex-direction: column;
     background-color: darkgrey;
+    cursor: pointer;
 }
 
 .itemVault h2 {
     background-color: darkgrey;
     margin-top: 0.5rem;
     padding: 0;
+    pointer-events: none;
 }
 
 .divImg {
@@ -121,9 +123,11 @@ header p {
     align-items: center;
     background-color: wheat;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .cardImg {
     width: 100%;
     margin: auto;
+    pointer-events: none;
 }
