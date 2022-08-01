@@ -34,7 +34,7 @@ header p {
 
 .containerMain {
     min-height: 94vh;
-    background-color: saddlebrown;
+    background-color: wheat;
 }
 
 .containerMain h2 {
@@ -45,6 +45,8 @@ header p {
 
 .storeList {
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 1rem;
     background-color: wheat;
     display: flex;
@@ -88,11 +90,10 @@ header p {
 .vaultItems {
     min-height: 60vw;
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.5rem 5rem;
     background-color: saddlebrown;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
