@@ -30,7 +30,7 @@ const items = [{
 
     {
         id: "helmet",
-        price: 10,
+        price: 20,
         img: "./img/helmetCard.jpg"
     },
 
@@ -70,8 +70,6 @@ let userItem = []
 
 let coins = 500
 
-userCoins.innerHTML = `${coins}`
-
 // User vault item creation
 const userVault = () => {
     userItem.forEach((itemV) => {
@@ -90,13 +88,19 @@ const userVault = () => {
 // Storage checker
 const storageChecker = () => {
     //Operador ternario
-    localStorage.getItem("userItemsDB") 
-    ? (userItem = JSON.parse(localStorage.getItem("userItemsDB")), userVault()) 
-    : localStorage.setItem("userItemsDB", userItem)
+    localStorage.getItem("userItemsDB") ?
+        (userItem = JSON.parse(localStorage.getItem("userItemsDB")), userVault()) :
+        localStorage.setItem("userItemsDB", userItem)
+
+    localStorage.getItem("userCoins") ?
+        (coins = JSON.parse(localStorage.getItem("userCoins"))) :
+        localStorage.setItem("userCoins", JSON.stringify(coins))
 }
 
 // Function app initializer
 storageChecker()
+
+userCoins.innerHTML = `${JSON.parse(localStorage.getItem("userCoins"))}`
 
 // Store item creation
 items.forEach((item) => {
@@ -126,10 +130,15 @@ storeList.addEventListener("click", (e) => {
         } = items.find(x => x.id === selectedItem.id)
 
         if (itemPrice > coins) {
-            alert("No funds available")
+            Swal.fire({
+                icon: 'warning',
+                title: 'No funds available',
+                text: 'Make some money and come back again',
+            })
         } else {
             coins = coins - itemPrice
             userCoins.innerHTML = `${coins}`
+            localStorage.setItem("userCoins", coins)
 
             userItem.push({
                 id: itemId,
@@ -147,6 +156,19 @@ storeList.addEventListener("click", (e) => {
             `
             vaultItems.append(itemVault)
             localStorage.setItem("userItemsDB", JSON.stringify(userItem))
+
+            Toastify({
+                text: "Item added",
+                gravity: "top",
+                position: "right",
+                offset: {
+                    y: "4rem"
+                },
+                style: {
+                    background: "#008000"
+                },
+                duration: 2000
+            }).showToast();
         }
     }
 })
@@ -163,9 +185,23 @@ vaultItems.addEventListener("click", (e) => {
 
         coins = coins + itemPrice
         userCoins.innerHTML = `${coins}`
+        localStorage.setItem("userCoins", JSON.stringify(coins))
 
         console.log(itemPrice)
         userItem.splice(itemIndex, 1)
         localStorage.setItem("userItemsDB", JSON.stringify(userItem))
+
+        Toastify({
+            text: "Item sold",
+            gravity: "top",
+            position: "right",
+            offset: {
+                y: "4rem"
+            },
+            style: {
+                background: "#ff0000"
+            },
+            duration: 2000
+        }).showToast();
     }
 })

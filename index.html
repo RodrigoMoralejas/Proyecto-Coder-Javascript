@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!---------- CSS ---------->
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <!---------- FAVICON ---------->
+  <link rel="shortcut icon" href="./img/favicon.webp" type="image/x-icon">
+  <title>Player's Vault</title>
 </head>
 
 <body>
   <header>
     <h1>Usuario: Mora</h1>
-    <p>Monedas: <span id="userCoins">100</span></p>
+    <p>Monedas: <span id="userCoins"></span></p>
   </header>
   <div class="containerMain" id="containerMain">
     <h2>Store Items</h2>
@@ -20,6 +24,8 @@
     <div class="vaultItems" id="vaultItems">
     </div>
   </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./index.js"></script>
 </body>
 </html>

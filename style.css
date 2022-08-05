@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     font-family: 'Roboto', sans-serif;
 }
@@ -125,6 +126,7 @@ header p {
     background-color: wheat;
     overflow: hidden;
     pointer-events: none;
+    border-radius: 4px;
 }
 
 .cardImg {
