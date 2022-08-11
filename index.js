@@ -3,67 +3,19 @@ const storeList = document.getElementById("storeList")
 const vaultItems = document.getElementById("vaultItems")
 const userCoins = document.getElementById("userCoins")
 
-// Objects' list
-const items = [{
-        id: "sword",
-        price: 20,
-        img: "./img/swordCard.png"
-    },
+let items = []
 
-    {
-        id: "axe",
-        price: 25,
-        img: "./img/axeCard.png"
-    },
+async function itemsJson() {
+    const items = await fetch("./JSON/items.json")
+    console.log(items)
+    const itemsConverter = await items.json()
+    console.log(itemsConverter)
+    return itemsConverter
+}
 
-    {
-        id: "bow",
-        price: 30,
-        img: "./img/bowCard.png"
-    },
+const itemsReturn = itemsJson()
 
-    {
-        id: "wand",
-        price: 30,
-        img: "./img/wandCard.webp"
-    },
-
-    {
-        id: "helmet",
-        price: 20,
-        img: "./img/helmetCard.jpg"
-    },
-
-    {
-        id: "armor",
-        price: 60,
-        img: "./img/armorCard.jpg"
-    },
-
-    {
-        id: "pants",
-        price: 40,
-        img: "./img/pantsCard.jpg"
-    },
-
-    {
-        id: "boots",
-        price: 20,
-        img: "./img/bootsCard.jpg"
-    },
-
-    {
-        id: "gloves",
-        price: 10,
-        img: "./img/glovesCard.jpg"
-    },
-
-    {
-        id: "potion",
-        price: 5,
-        img: "./img/potionCard.png"
-    },
-]
+// itemsReturn.then(data => items = data)
 
 // Initial array
 let userItem = []
@@ -103,19 +55,24 @@ storageChecker()
 userCoins.innerHTML = `${JSON.parse(localStorage.getItem("userCoins"))}`
 
 // Store item creation
-items.forEach((item) => {
-    const newItem = document.createElement("div")
-    newItem.classList.add("storeItem")
-    newItem.id = item.id
-    newItem.innerHTML = `
+const itemsForEach = (dataReturn) => {
+    items = dataReturn
+    items.forEach((item) => {
+        const newItem = document.createElement("div")
+        newItem.classList.add("storeItem")
+        newItem.id = item.id
+        newItem.innerHTML = `
         <div class="itemImg">
             <img class="cardImg" src="${item.img}" alt="">
         </div>
         <h3>${item.id}</h3>
         <p>${item.price}</p>
     `
-    storeList.append(newItem)
-})
+        storeList.append(newItem)
+    })
+}
+
+itemsReturn.then(data => itemsForEach(data))
 
 // Store item event listener
 storeList.addEventListener("click", (e) => {
