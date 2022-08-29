@@ -1,27 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-html{}
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+html {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
 
-.titleLogin {}
+body {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titleLogin {
+  margin-top: 1rem;
+  font-size: 4rem;
+}
 
 .formLogin {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    gap: 1rem;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.inputLogin {}
+.inputLogin {
+  height: 25px;
+  width: 35vw;
+  border-radius: 2px;
+}
 
-.btnLogin {}
+.btn {
+  margin: 2px;
+  color: black;
+}
 
+.btnLogin {
+  width: 35vw;
+  margin: 1rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnCreate {
+  height: 1.5rem;
+  width: 35vw;
+  border-radius: 4px;
+  cursor: pointer;
+}

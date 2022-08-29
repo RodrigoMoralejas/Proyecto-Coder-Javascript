@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!---------- CSS ---------->
+    <link rel="stylesheet" href="login.css" />
+    <!---------- FAVICON ---------->
+    <link rel="shortcut icon" href="./img/favicon.webp" type="image/x-icon" />
     <title>Login</title>
-</head>
+  </head>
 
-<body>
-    <h1 class="titleLogin">Mora Quest</h1>
+  <body>
+    <h1 class="titleLogin">Welcome To The Vault</h1>
     <form class="formLogin" id="formLogin" action="">
-        <input type="text" class="inputLogin" id="nameLogin" placeholder="Enter your character's name">
-        <input type="text" class="inputLogin" id="passLogin" placeholder="Enter your password">
-        <input type="submit" class="btnLogin" id="btnLogin" value="Enter">
+      <input
+        type="text"
+        class="inputLogin"
+        id="nameLogin"
+        placeholder="Enter your character's name"
+        autocomplete="off"
+      />
+      <input
+        type="password"
+        class="inputLogin"
+        id="passLogin"
+        placeholder="Enter your password"
+        autocomplete="off"
+      />
+      <input type="submit" class="btn btnLogin" id="btnLogin" value="Enter" />
     </form>
+    <button id="btnCreate" class="btn btnCreate">Create User</button>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="login.js"></script>
-</body>
-
+  </body>
 </html>

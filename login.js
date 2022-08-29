@@ -1,20 +1,75 @@
 //Elements from DOM
-const formLogin = document.getElementById("formLogin")
-const nameLogin = document.getElementById("nameLogin")
-const passLogin = document.getElementById("passLogin")
-const btnLogin = document.getElementById("btnLogin")
+const formLogin = document.getElementById("formLogin");
+const nameLogin = document.getElementById("nameLogin");
+const passLogin = document.getElementById("passLogin");
+const btnLogin = document.getElementById("btnLogin");
+const btnCreate = document.getElementById("btnCreate");
 
-const userLogin = []
+let userLogin = [];
 
-localStorage.setItem("usersDB", userLogin)
+localStorage.getItem("usersDB")
+  ? (userLogin = JSON.parse(localStorage.getItem("usersDB")))
+  : localStorage.setItem("usersDB", userLogin);
 
 formLogin.addEventListener("submit", (e) => {
-    e.preventDefault()
+  e.preventDefault();
 
-    const nameInput = nameLogin.value
-    const passInput = passLogin.value
-    
-    console.log(nameInput)
-    console.log(passInput)
-})
+  const nameInput = nameLogin.value;
+  const passInput = passLogin.value;
 
+  const userSearch = userLogin.find((x) => x.user === nameInput);
+
+  if (nameInput.trim() === "" || passInput.trim() === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Empty fields",
+      text: "You need to put name and pass",
+    });
+  } else if (userSearch !== undefined) {
+    userSearch.logged = true;
+    localStorage.setItem("usersDB", JSON.stringify(userLogin));
+    window.location.href = "./index.html";
+  } else {
+    Swal.fire({
+      icon: "warning",
+      title: "Attention",
+      text: "This user does not exists, click to create one",
+    });
+  }
+});
+
+btnCreate.addEventListener("click", () => {
+  const nameInput = nameLogin.value;
+  const passInput = passLogin.value;
+
+  const userFind = userLogin.find((x) => x.user === nameInput);
+
+  if (nameInput.trim() === "" || passInput.trim() === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Empty fields",
+      text: "You need to put name and pass",
+    });
+  } else if (userFind !== undefined) {
+    Swal.fire({
+      icon: "info",
+      title: "Attention",
+      text: "User already exists",
+    });
+  } else {
+    userLogin.push({
+      user: nameInput,
+      pass: passInput,
+      coins: 500,
+      logged: false,
+      items: [],
+    });
+    Swal.fire({
+      icon: "success",
+      title: "Successful",
+      text: "User created",
+    });
+
+    localStorage.setItem("usersDB", JSON.stringify(userLogin));
+  }
+});

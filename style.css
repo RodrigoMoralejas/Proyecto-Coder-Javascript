@@ -1,136 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
 html {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    width: 100%;
+  width: 100%;
 }
 
 header {
-    width: 100%;
-    padding: 0.5rem 0rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: slategray;
+  width: 100%;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: slategray;
 }
 
 header h1 {
-    margin-left: 1rem;
-    font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 header p {
-    margin-right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#btnLogout {
+    color: #c08552;
+    font-size: 1rem;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 4px;
+    border-color: #c08552;
+    cursor: pointer;
 }
 
 .containerMain {
-    min-height: 94vh;
-    background-color: wheat;
+  min-height: 94vh;
+  background-color: wheat;
 }
 
 .containerMain h2 {
-    padding-top: 0.5rem;
-    text-align: center;
-    background-color: wheat;
+  padding-top: 0.5rem;
+  text-align: center;
+  background-color: wheat;
 }
 
 .storeList {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    background-color: wheat;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.storeItem{
-    height: 9rem;
-    width: 7rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: cadetblue;
-    border-radius: 4px;
-    cursor: pointer;
+.storeItem {
+  height: 9rem;
+  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c08552;
+  border: 4px;
+  cursor: pointer;
 }
 
 .storeItem h3 {
-    margin: 0.2rem 0;
-    pointer-events: none;
+  margin: 0.2rem 0;
+  pointer-events: none;
 }
 
 .storeItem p {
-    font-weight: bold;
-    color: whitesmoke;
-    pointer-events: none;
+  font-weight: bold;
+  color: whitesmoke;
+  pointer-events: none;
 }
 
 .itemImg {
-    height: 5rem;
-    width: 5rem;
-    background-color: bisque;
-    border-radius: 4px;
-    pointer-events: none;
+  height: 5rem;
+  width: 5rem;
+  background-color: bisque;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
-
 .vaultItems {
-    min-height: 60vw;
-    width: 100%;
-    padding: 1.5rem 5rem;
-    background-color: saddlebrown;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  min-height: 60vw;
+  width: 100%;
+  padding: 1.5rem 5rem;
+  background-color: #5e3023;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .itemVault {
-    width: 200px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: darkgrey;
-    cursor: pointer;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #c08552;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .itemVault h2 {
-    background-color: darkgrey;
-    margin-top: 0.5rem;
-    padding: 0;
-    pointer-events: none;
+  background-color: #c08552;
+  margin-top: 0.5rem;
+  padding: 0;
+  pointer-events: none;
 }
 
 .divImg {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: wheat;
-    overflow: hidden;
-    pointer-events: none;
-    border-radius: 4px;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 4px;
 }
 
 .cardImg {
-    width: 100%;
-    margin: auto;
-    pointer-events: none;
+  width: 100%;
+  margin: auto;
+  pointer-events: none;
 }
