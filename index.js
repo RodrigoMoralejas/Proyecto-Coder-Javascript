@@ -25,7 +25,13 @@ formLogin.addEventListener("submit", (e) => {
       title: "Empty fields",
       text: "You need to put name and pass",
     });
-  } else if (userSearch !== undefined) {
+  } else if (userSearch !== undefined && userSearch.pass !== passInput){
+    Swal.fire({
+      icon: "error",
+      title: "Wrong password",
+      text: "Password incorrect, please try again",
+    });
+  } else if (userSearch !== undefined && userSearch.pass === passInput) {
     userSearch.logged = true;
     localStorage.setItem("usersDB", JSON.stringify(userLogin));
     window.location.href = "./app.html";
