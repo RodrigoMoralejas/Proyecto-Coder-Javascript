@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!---------- CSS ---------->
+    <link rel="stylesheet" href="./index.css" />
+    <!---------- FAVICON ---------->
+    <link rel="shortcut icon" href="./img/favicon.webp" type="image/x-icon" />
+    <title>Login</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <!---------- CSS ---------->
-  <link rel="stylesheet" href="style.css">
-  <!---------- FAVICON ---------->
-  <link rel="shortcut icon" href="./img/favicon.webp" type="image/x-icon">
-  <title>Player's Vault</title>
-</head>
-
-<body>
-  <header>
-    <h1>Usuario: <span id="userLogged"></span></h1>
-    <p>Monedas: <span id="userCoins"></span></p>
-    <button id="btnLogout">Log out</button>
-  </header>
-  <div class="containerMain" id="containerMain">
-    <h2>Store Items</h2>
-    <div class="storeList" id="storeList"></div>
-    <div class="vaultItems" id="vaultItems">
-    </div>
-  </div>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="./index.js"></script>
-</body>
+  <body>
+    <h1 class="titleLogin">Welcome To The Vault</h1>
+    <form class="formLogin" id="formLogin" action="">
+      <input
+        type="text"
+        class="inputLogin"
+        id="nameLogin"
+        placeholder="Enter your character's name"
+        autocomplete="off"
+      />
+      <input
+        type="password"
+        class="inputLogin"
+        id="passLogin"
+        placeholder="Enter your password"
+        autocomplete="off"
+      />
+      <input type="submit" class="btn btnLogin" id="btnLogin" value="Enter" />
+    </form>
+    <button id="btnCreate" class="btn btnCreate">Create User</button>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
-
-

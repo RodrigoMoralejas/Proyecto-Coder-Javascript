@@ -1,60 +1,60 @@
 [{
         "id": "sword",
         "price": 20,
-        "img": "../img/swordCard.png"
+        "img": "./img/swordCard.png"
     },
 
     {
         "id": "axe",
         "price": 25,
-        "img": "../img/axeCard.png"
+        "img": "./img/axeCard.png"
     },
 
     {
         "id": "bow",
         "price": 30,
-        "img": "../img/bowCard.png"
+        "img": "./img/bowCard.png"
     },
 
     {
         "id": "wand",
         "price": 30,
-        "img": "../img/wandCard.webp"
+        "img": "./img/wandCard.webp"
     },
 
     {
         "id": "helmet",
         "price": 20,
-        "img": "../img/helmetCard.jpg"
+        "img": "./img/helmetCard.jpg"
     },
 
     {
         "id": "armor",
         "price": 60,
-        "img": "../img/armorCard.jpg"
+        "img": "./img/armorCard.jpg"
     },
 
     {
         "id": "pants",
         "price": 40,
-        "img": "../img/pantsCard.jpg"
+        "img": "./img/pantsCard.jpg"
     },
 
     {
         "id": "boots",
         "price": 20,
-        "img": "../img/bootsCard.jpg"
+        "img": "./img/bootsCard.jpg"
     },
 
     {
         "id": "gloves",
         "price": 10,
-        "img": "../img/glovesCard.jpg"
+        "img": "./img/glovesCard.jpg"
     },
 
     {
         "id": "potion",
         "price": 5,
-        "img": "../img/potionCard.png"
+        "img": "./img/potionCard.png"
     }
 ]
